@@ -1,0 +1,8 @@
+pydantic~=2.7.1
+imutils~=0.5.4
+opencv-python~=4.9.0.80
+pillow~=10.3.0
+pyserial~=3.5
+numpy~=1.23.5
+mediapipe~=0.10.11
+deepface~=0.0.90

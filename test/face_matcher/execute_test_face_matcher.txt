@@ -1,0 +1,73 @@
+# matcher faces tests:
+# face recognition:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_face_recognition_model_matcher_images
+
+# vgg:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_vgg_model_matcher_images
+
+# facenet:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_facenet_model_matcher_images
+
+# facenet512:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_facenet512_model_matcher_images
+
+# openface:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_openface_model_matcher_images
+
+# deepface:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_deepface_model_matcher_images
+
+# deepID:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_deepID_model_matcher_images
+
+# arcface:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_arcface_model_matcher_images
+
+# sface:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_sface_model_matcher_images
+
+# dlib:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_dlib_model_matcher_images
+
+# ghostfacenet:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_ghostfacenet_model_matcher_images
+
+
+
+
+
+
+
+# not matcher faces tests:
+# face recognition:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_face_recognition_model_not_matcher_images
+
+# vgg:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_vgg_model_not_matcher_images
+
+# facenet:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_facenet_model_not_matcher_images
+
+# facenet512:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_facenet512_model_not_matcher_images
+
+# openface:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_openface_model_not_matcher_images
+
+# deepface:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_deepface_model_not_matcher_images
+
+# deepID:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_deepID_model_not_matcher_images
+
+# arcface:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_arcface_model_not_matcher_images
+
+# sface:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_sface_model_not_matcher_images
+
+# dlib:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_dlib_model_not_matcher_images
+
+# ghostfacenet:
+python -m unittest -f tests.face_matcher_test.TestFaceMatcher.test_face_matcher_ghostfacenet_model_not_matcher_images

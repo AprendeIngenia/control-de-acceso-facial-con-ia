@@ -2,7 +2,6 @@ import os
 from tkinter import *
 import tkinter as Tk
 import imutils
-import cv2
 from PIL import Image, ImageTk
 import cv2
 

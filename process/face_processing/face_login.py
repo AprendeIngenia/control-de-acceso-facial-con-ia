@@ -1,6 +1,4 @@
 import numpy as np
-import cv2
-from typing import Tuple
 
 from process.face_processing.face_utils import FaceUtils
 from process.database.config import DataBasePaths

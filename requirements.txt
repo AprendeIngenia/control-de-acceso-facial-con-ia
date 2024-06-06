@@ -1,3 +1,8 @@
+#whl para https://github.com/eddiehe99/dlib-whl
+#whl https://pypi.org/project/dlib-bin/#files
+# para windows descargar los siguientes ficheros desde las urls de arriba y descomentar las 2 lineas de abajo
+# ./dlib-19.24.1-cp310-cp310-win_amd64.whl
+# ./dlib_bin-19.24.2.post1-cp310-cp310-win_amd64.whl
 pydantic~=2.7.1
 imutils~=0.5.4
 opencv-python~=4.9.0.80
@@ -6,3 +11,5 @@ pyserial~=3.5
 numpy~=1.23.5
 mediapipe~=0.10.11
 deepface~=0.0.90
+tf-keras~=2.16.0
+face_recognition~=1.3.0

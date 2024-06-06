@@ -1,15 +1,16 @@
 import os
-from tkinter import *
 import tkinter as Tk
+from tkinter import END, Button, Entry, Label, PhotoImage, Toplevel
+
+import cv2
 import imutils
 from PIL import Image, ImageTk
-import cv2
 
-from process.gui.image_paths import ImagePaths
-from process.database.config import DataBasePaths
-from process.face_processing.facial_signup import FacialSignUp
-from process.face_processing.facial_login import FacialLogIn
 from process.com_interface.serial_com import SerialCommunication
+from process.database.config import DataBasePaths
+from process.face_processing.facial_login import FacialLogIn
+from process.face_processing.facial_signup import FacialSignUp
+from process.gui.image_paths import ImagePaths
 
 
 class CustomFrame(Tk.Frame):
@@ -30,6 +31,8 @@ class GraphicalUserInterface:
         self.signup_video = None
         self.login_video = None
         self.cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+        if not self.cap.isOpened():  # si la camara no soporta CAP_DSHOW
+            self.cap = cv2.VideoCapture(0)
         self.cap.set(3, 1280)
         self.cap.set(4, 720)
 
@@ -88,7 +91,7 @@ class GraphicalUserInterface:
 
         else:
             self.cap.release()
-        
+
     def data_sign_up(self):
         # extract data
         self.name, self.user_code = self.input_name.get(), self.input_user_code.get()

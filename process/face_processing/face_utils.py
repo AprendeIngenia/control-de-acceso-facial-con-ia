@@ -1,7 +1,6 @@
 import os
 import numpy as np
 import cv2
-import math
 import datetime
 from typing import List, Tuple, Any
 from process.face_processing.face_detect_models.face_detect import FaceDetectMediapipe

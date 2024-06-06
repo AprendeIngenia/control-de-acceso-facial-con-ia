@@ -30,6 +30,8 @@ class GraphicalUserInterface:
         self.signup_video = None
         self.login_video = None
         self.cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+        if not self.cap.isOpened():  # si la camara no soporta CAP_DSHOW
+            self.cap = cv2.VideoCapture(0)
         self.cap.set(3, 1280)
         self.cap.set(4, 720)
 

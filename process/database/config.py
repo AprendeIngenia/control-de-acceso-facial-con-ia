@@ -1,6 +1,6 @@
 from pydantic import BaseModel
-from process.database.faces_path import faces_path
 from process.database.users_path import (users_path, users_check_path)
+from process.database.faces_path import faces_path
 
 
 class DataBasePaths(BaseModel):

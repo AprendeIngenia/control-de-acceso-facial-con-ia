@@ -1,1 +1,1 @@
-faces_path: str = "process/database/faces"
+faces_path: str = 'process/database/faces'

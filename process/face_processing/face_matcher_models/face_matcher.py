@@ -3,7 +3,6 @@ from deepface import DeepFace
 from typing import Tuple
 import cv2
 import numpy as np
-import json
 
 
 class FaceMatcherModels:
@@ -20,109 +19,98 @@ class FaceMatcherModels:
             "SFace",
             "GhostFaceNet",
         ]
-        pass
 
-    def face_matching_face_recognition_model(self, id_face: np.ndarray, user_face: np.ndarray) -> Tuple[bool, float]:
-        id_face = cv2.cvtColor(id_face, cv2.COLOR_BGR2RGB)
-        user_face = cv2.cvtColor(user_face, cv2.COLOR_BGR2RGB)
+    def face_matching_face_recognition_model(self, face_1: np.ndarray, face_2: np.ndarray) -> Tuple[bool, float]:
+        face_1 = cv2.cvtColor(face_1, cv2.COLOR_BGR2RGB)
+        face_2 = cv2.cvtColor(face_2, cv2.COLOR_BGR2RGB)
 
-        id_face_loc = [(0, id_face.shape[0], id_face.shape[1], 0)]
-        user_face_loc = [(0, user_face.shape[0], user_face.shape[1], 0)]
+        face_loc_1 = [(0, face_1.shape[0], face_1.shape[1], 0)]
+        face_loc_2 = [(0, face_2.shape[0], face_2.shape[1], 0)]
 
-        id_face_encoding = fr.face_encodings(id_face, known_face_locations=id_face_loc)[0]
-        user_face_encoding = fr.face_encodings(user_face, known_face_locations=user_face_loc)
+        face_1_encoding = fr.face_encodings(face_1, known_face_locations=face_loc_1)[0]
+        face_2_encoding = fr.face_encodings(face_2, known_face_locations=face_loc_2)
 
-        matching = fr.compare_faces(id_face_encoding, user_face_encoding, tolerance=0.55)
-        distance = fr.face_distance(id_face_encoding, user_face_encoding)
+        matching = fr.compare_faces(face_1_encoding, face_2_encoding, tolerance=0.55)
+        distance = fr.face_distance(face_1_encoding, face_2_encoding)
 
         return matching[0], distance[0]
 
-    def face_matching_vgg_model(self, id_face: np.ndarray, user_face: np.ndarray) -> Tuple[bool, float]:
+    def face_matching_vgg_model(self, face_1: np.ndarray, face_2: np.ndarray) -> Tuple[bool, float]:
         try:
-            result = DeepFace.verify(img1_path=id_face, img2_path=user_face, model_name=self.models[0])
+            result = DeepFace.verify(img1_path=face_1, img2_path=face_2, model_name=self.models[0])
             matching, distance = result['verified'], result['distance']
-            # print(json.dumps(result, indent=2))
             return matching, distance
         except:
             return False, 0.0
 
-    def face_matching_facenet_model(self, id_face: np.ndarray, user_face: np.ndarray) -> Tuple[bool, float]:
+    def face_matching_facenet_model(self, face_1: np.ndarray, face_2: np.ndarray) -> Tuple[bool, float]:
         try:
-            result = DeepFace.verify(img1_path=id_face, img2_path=user_face, model_name=self.models[1])
+            result = DeepFace.verify(img1_path=face_1, img2_path=face_2, model_name=self.models[1])
             matching, distance = result['verified'], result['distance']
-            #print(json.dumps(result, indent=2))
             return matching, distance
         except:
             return False, 0.0
 
-    def face_matching_facenet512_model(self, id_face: np.ndarray, user_face: np.ndarray) -> Tuple[bool, float]:
+    def face_matching_facenet512_model(self, face_1: np.ndarray, face_2: np.ndarray) -> Tuple[bool, float]:
         try:
-            result = DeepFace.verify(img1_path=id_face, img2_path=user_face, model_name=self.models[2])
+            result = DeepFace.verify(img1_path=face_1, img2_path=face_2, model_name=self.models[2])
             matching, distance = result['verified'], result['distance']
-            #print(json.dumps(result, indent=2))
             return matching, distance
         except:
             return False, 0.0
 
-    def face_matching_openface_model(self, id_face: np.ndarray, user_face: np.ndarray) -> Tuple[bool, float]:
+    def face_matching_openface_model(self, face_1: np.ndarray, face_2: np.ndarray) -> Tuple[bool, float]:
         try:
-            result = DeepFace.verify(img1_path=id_face, img2_path=user_face, model_name=self.models[3])
+            result = DeepFace.verify(img1_path=face_1, img2_path=face_2, model_name=self.models[3])
             matching, distance = result['verified'], result['distance']
-            #print(json.dumps(result, indent=2))
             return matching, distance
         except:
             return False, 0.0
 
-    def face_matching_deepface_model(self, id_face: np.ndarray, user_face: np.ndarray) -> Tuple[bool, float]:
+    def face_matching_deepface_model(self, face_1: np.ndarray, face_2: np.ndarray) -> Tuple[bool, float]:
         try:
-            result = DeepFace.verify(img1_path=id_face, img2_path=user_face, model_name=self.models[4])
+            result = DeepFace.verify(img1_path=face_1, img2_path=face_2, model_name=self.models[4])
             matching, distance = result['verified'], result['distance']
-            #print(json.dumps(result, indent=2))
             return matching, distance
         except:
             return False, 0.0
 
-    def face_matching_deepID_model(self, id_face: np.ndarray, user_face: np.ndarray) -> Tuple[bool, float]:
+    def face_matching_deepid_model(self, face_1: np.ndarray, face_2: np.ndarray) -> Tuple[bool, float]:
         try:
-            result = DeepFace.verify(img1_path=id_face, img2_path=user_face, model_name=self.models[5])
+            result = DeepFace.verify(img1_path=face_1, img2_path=face_2, model_name=self.models[5])
             matching, distance = result['verified'], result['distance']
-            #print(json.dumps(result, indent=2))
             return matching, distance
         except:
             return False, 0.0
 
-    def face_matching_arcface_model(self, id_face: np.ndarray, user_face: np.ndarray) -> Tuple[bool, float]:
+    def face_matching_arcface_model(self, face_1: np.ndarray, face_2: np.ndarray) -> Tuple[bool, float]:
         try:
-            result = DeepFace.verify(img1_path=id_face, img2_path=user_face, model_name=self.models[6])
+            result = DeepFace.verify(img1_path=face_1, img2_path=face_2, model_name=self.models[6])
             matching, distance = result['verified'], result['distance']
-            #print(json.dumps(result, indent=2))
             return matching, distance
         except:
             return False, 0.0
 
-    def face_matching_sface_model(self, id_face: np.ndarray, user_face: np.ndarray) -> Tuple[bool, float]:
+    def face_matching_dlib_model(self, face_1: np.ndarray, face_2: np.ndarray) -> Tuple[bool, float]:
         try:
-            result = DeepFace.verify(img1_path=id_face, img2_path=user_face, model_name=self.models[7])
+            result = DeepFace.verify(img1_path=face_1, img2_path=face_2, model_name=self.models[7])
             matching, distance = result['verified'], result['distance']
-            #print(json.dumps(result, indent=2))
             return matching, distance
         except:
             return False, 0.0
 
-    def face_matching_dlib_model(self, id_face: np.ndarray, user_face: np.ndarray) -> Tuple[bool, float]:
+    def face_matching_sface_model(self, face_1: np.ndarray, face_2: np.ndarray) -> Tuple[bool, float]:
         try:
-            result = DeepFace.verify(img1_path=id_face, img2_path=user_face, model_name=self.models[7])
+            result = DeepFace.verify(img1_path=face_1, img2_path=face_2, model_name=self.models[8])
             matching, distance = result['verified'], result['distance']
-            #print(json.dumps(result, indent=2))
             return matching, distance
         except:
             return False, 0.0
 
-    def face_matching_ghostfacenet_model(self, id_face: np.ndarray, user_face: np.ndarray) -> Tuple[bool, float]:
+    def face_matching_ghostfacenet_model(self, face_1: np.ndarray, face_2: np.ndarray) -> Tuple[bool, float]:
         try:
-            result = DeepFace.verify(img1_path=id_face, img2_path=user_face, model_name=self.models[8])
+            result = DeepFace.verify(img1_path=face_1, img2_path=face_2, model_name=self.models[9])
             matching, distance = result['verified'], result['distance']
-            #print(json.dumps(result, indent=2))
             return matching, distance
         except:
             return False, 0.0

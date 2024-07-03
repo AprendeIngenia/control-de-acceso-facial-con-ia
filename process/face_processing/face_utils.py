@@ -65,10 +65,9 @@ class FaceUtils:
     # save
     def save_face(self, face_crop: np.ndarray, user_code: str, path: str):
         if len(face_crop) != 0:
-            if -5 < self.angle < 5:
-                face_crop = cv2.cvtColor(face_crop, cv2.COLOR_BGR2RGB)
-                cv2.imwrite(f"{path}/{user_code}.png", face_crop)
-                return True
+            face_crop = cv2.cvtColor(face_crop, cv2.COLOR_BGR2RGB)
+            cv2.imwrite(f"{path}/{user_code}.png", face_crop)
+            return True
 
         else:
             return False
@@ -155,5 +154,3 @@ class FaceUtils:
                 user_file.write(f'\nAccess granted at: {date_time}\n')
 
             self.user_registered = True
-
-
